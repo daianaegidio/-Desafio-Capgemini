@@ -1,0 +1,12 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
+public class questao3 {
+	
+	  private static String palavra;
+
+	public static void main(String[] args) {
+		
+		
+    }
+}

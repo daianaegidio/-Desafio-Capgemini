@@ -1,0 +1,35 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.HashMap;
+public class questao3 {
+	
+	 
+	
+	public static void main(String[] args) {
+		
+		
+		Scanner sc = new Scanner(System.in);
+		Anagrama anagrama = new Anagrama();
+		
+		/**
+		 * 
+		 * @param palavra String string informada pelo usuário que será utilizada para criar as substrings a serem verificadas
+		 * 
+		 * É solicitado ao usuário que informe a string a qual deseja verificar a existência de anagramas em suas substrings.
+		 * O método para determinar se existem pares de substrings da string informadas que são anagramas se encontra na Classe Anagrama.
+		 */
+		System.out.print("Informa a palavra a ser verificada: ");
+		String palavra = sc.next();
+		
+		anagrama.contadorDeAnagramas(palavra);
+				
+		sc.close();
+
+	}
+
+	
+	}
+	
+	

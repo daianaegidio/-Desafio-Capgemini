@@ -1,0 +1,57 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class questao3 {
+	
+	static Scanner leitor = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		int anagramas=0;
+		 System.out.println("Digite uma palavra: ");
+		 String resposta = leitor.nextLine();
+		 anagramas = analisar(resposta, resposta.length()); //testa quantos anagramas a string contém
+	        
+	        System.out.println("A string " + resposta + " contém " + anagramas + " anagramas!");
+	}
+
+	 private static int analisar(String resposta, int tamanho) {
+		
+		int contAnagramas = 0;
+        ArrayList<String> vetor = new ArrayList();
+        
+        for(int i=0;i<=resposta.length()-tamanho;i++){
+            vetor.add(resposta.substring(i, i+tamanho));
+        }
+        
+        for(int i =0;i<vetor.size();i++){
+            for(int j = i+1;j<vetor.size();j++){
+                if(ordernaArray(vetor.get(i), vetor.get(j))){
+                    //imprime as strings comparadas com isAnagrama, usado para fins de teste
+                    //System.out.println(grupos.get(i)+"|"+grupos.get(j)); 
+                    contAnagramas++;
+                }
+            }
+        }
+        if(tamanho == 1){
+            return contAnagramas;
+        }else{
+            return contAnagramas + analisar(resposta, tamanho-1);
+        }
+	}
+	
+	  private static boolean ordernaArray (String par1, String par2 ) {
+		
+		
+        char[] string1 = par1.toCharArray();
+        char[] string2 = par2.toCharArray();
+        
+       
+        Arrays.sort(string1);
+        Arrays.sort(string2);
+        
+      
+        return Arrays.equals(string2, string2);
+	}
+}

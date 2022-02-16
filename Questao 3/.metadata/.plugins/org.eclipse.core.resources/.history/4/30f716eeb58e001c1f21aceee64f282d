@@ -1,0 +1,21 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class questao3 {
+	
+	public static boolean anagrama (String teste) {
+		
+		char [] temp= teste.toCharArray();
+	
+		teste=teste.toLowerCase();
+		
+		System.out.println(teste);
+		System.out.println(temp);
+		return true;
+	}
+
+	public static void main(String[] args) {
+		System.out.println(anagrama("ovo"));	
+		       
+    }
+}

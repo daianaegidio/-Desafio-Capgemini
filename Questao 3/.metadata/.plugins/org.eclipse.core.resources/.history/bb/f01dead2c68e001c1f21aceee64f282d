@@ -1,0 +1,118 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.HashMap;
+public class questao3 {
+	
+	 
+	
+	public static void main(String[] args) {
+		
+		
+		Scanner sc = new Scanner(System.in);
+		Anagrama anagrama = new Anagrama();
+		
+		/**
+		 * 
+		 * @param palavra String string informada pelo usuário que será utilizada para criar as substrings a serem verificadas
+		 * 
+		 * É solicitado ao usuário que informe a string a qual deseja verificar a existência de anagramas em suas substrings.
+		 * O método para determinar se existem pares de substrings da string informadas que são anagramas se encontra na Classe Anagrama.
+		 */
+		System.out.print("Informa a palavra a ser verificada: ");
+		String palavra = sc.next();
+		
+		anagrama.contadorDeAnagramas(palavra);
+				
+		sc.close();
+
+	}
+
+	public class Anagrama {
+		
+		/** Parâmetro que compõem a classe Anagrama
+		 * 
+		 * @param palavra String string informada pelo usuário 
+		 */
+		private String palavra;
+
+		/** Construtor padrão da classe */
+		public Anagrama() {		
+		}
+
+		/** Construtor customizado com uma dependência 
+		 *
+		 *@param palavra
+		 */
+		public Anagrama(String palavra) {
+			super();
+			this.palavra = palavra;
+		}
+
+		/** Método para buscar a string fornecida pelo usuário
+		 * 
+		 * @return palavra
+		 */
+		public String getPalavra() {
+			return palavra;
+		}
+
+		/** Método para informar uma string
+		 * 
+		 * @param palavra
+		 */
+		public void setPalavra(String palavra) {
+			this.palavra = palavra;
+		}
+		
+		/** Método para determinar a quantidade de pares de anagramas existem nas substrings da string informada pelo usuário
+		 * 
+		 * @param palavra
+		 */
+		public void contadorDeAnagramas(String palavra) {
+			HashMap<String, Integer> sub = new HashMap<>();
+			int quantidadeDeAnagramas = 0;
+			
+			/** Loop para criar e armazenar substrings na coleção sub com base na string informado pelo usuário.
+			 * 
+			 * É criado um array com cada novo conjunto de caracteres formado, sendo estes posteriormente convertidos para o formato String,
+			 * tormando assim as substrings verificadas.
+			 * Verifica-se então se a substring criada já existe na coleção sub, se sim adiciona-se mais 1 ao seu valor, caso contrário ela é
+			 * adicionada a coleção com um valor inicial de 1. 
+			 */
+			for(int i=0; i<palavra.length(); i++) {
+				for(int j=i; j<palavra.length(); j++) {
+					char[] novaPalavraEmChar = palavra.substring(i, j+1).toCharArray();
+					Arrays.sort(novaPalavraEmChar);
+					String novaParavra = new String(novaPalavraEmChar);
+					if(sub.containsKey(novaParavra)) {
+						sub.put(novaParavra, sub.get(novaParavra)+1);
+					}
+					else {
+						sub.put(novaParavra, 1);
+					}
+				}
+			}
+			
+			/** Loop para determinar a quantidade de pares de substrings da coleção que são anagramas 
+			 * 
+			 * Onde a quantidade de anagramas é acrescida em 1 para toda substring que apareceu duas vezes na coleção e não é acrescida em nada
+			 * quando a subatring apareceu apenas uma vez. 
+			 */
+			for(String novaPalavra:sub.keySet()) {
+				int valor = sub.get(novaPalavra);
+				if(valor == 1) {
+					quantidadeDeAnagramas += 0;
+				}
+				else {
+					quantidadeDeAnagramas += 1;
+				}
+			}
+			
+			System.out.println();
+			System.out.printf("Nas substrings da palavra %s há um total de %d anagrama(s).", palavra, quantidadeDeAnagramas);
+		}
+	}
+	
+	}

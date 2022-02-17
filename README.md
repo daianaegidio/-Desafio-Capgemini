@@ -1,4 +1,4 @@
-# -Desafio-Capgemini
+# Desafio-Capgemini
 Este projeto consiste na resolução das questões do processo de seleção para a Academia Capgemini 2022.
 
 **Questão 1**
@@ -15,7 +15,7 @@ Duas palavras podem ser consideradas anagramas de si mesmas se as letras de uma 
 **Os arquivos estão nomeados correspondendo a questão**
 
 ## Como rodar a aplicação
-Clone o código deste repositório utilizando "https://github.com/daianaegidio/-Desafio-Capgemini.git", é necessário ter o git instalado em sua máquina. Após clonar o código, abra a IDE eclipse e siga os seguintes passos:
+Clone o código deste repositório utilizando "git clone https://github.com/daianaegidio/-Desafio-Capgemini.git", é necessário ter o git instalado em sua máquina. Após clonar o código, abra a IDE eclipse e siga os seguintes passos:
 
 1. Clique em File > Import.
 2. Uma nova tela abrirá, clique em General > Existing Projects into Workspace.
